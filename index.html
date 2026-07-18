@@ -11,6 +11,65 @@
 			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
+		<style>
+			@keyframes icon-color-blink {
+				0%,
+				100% {
+					color: #fcd34d;
+					text-shadow: 0 0 10px rgba(252, 211, 77, 0.45);
+				}
+				50% {
+					color: #fb7185;
+					text-shadow: 0 0 16px rgba(251, 113, 133, 0.6);
+				}
+			}
+
+			@keyframes icon-attention {
+				0%,
+				100% {
+					transform: translateY(0) scale(1);
+					filter: drop-shadow(0 0 0 rgba(56, 189, 248, 0));
+				}
+				45% {
+					transform: translateY(-3px) scale(1.08);
+					filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.65));
+				}
+			}
+
+			@keyframes icon-spotlight {
+				0%,
+				100% {
+					transform: rotate(-4deg) scale(1);
+					text-shadow: 0 0 8px rgba(167, 139, 250, 0.35);
+				}
+				50% {
+					transform: rotate(4deg) scale(1.1);
+					text-shadow: 0 0 16px rgba(196, 181, 253, 0.7);
+				}
+			}
+
+			.icon-money {
+				animation: icon-color-blink 1.6s ease-in-out infinite;
+			}
+
+			.icon-growth {
+				display: inline-block;
+				animation: icon-attention 2s ease-in-out infinite;
+			}
+
+			.icon-content {
+				display: inline-block;
+				animation: icon-spotlight 2.4s ease-in-out infinite;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.icon-money,
+				.icon-growth,
+				.icon-content {
+					animation: none;
+				}
+			}
+		</style>
 	</head>
 
 	<body class="min-h-screen bg-slate-950 text-slate-100 [font-family:Manrope,sans-serif]">
@@ -27,35 +86,29 @@
 				</article>
 			</section>
 
-			<header class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/85 via-violet-500/15 to-sky-500/15 p-5 shadow-2xl shadow-slate-900/30 backdrop-blur sm:p-6 lg:p-8">
-				<div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-					<div class="flex items-center gap-4 sm:gap-5">
-						<div class="relative">
-							<div class="absolute -inset-1 rounded-full bg-gradient-to-r from-violet-400 via-indigo-400 to-sky-400 blur-sm"></div>
-							<img
-								src="https://m.media-amazon.com/images/I/91TL1eOn-UL._AC_UF894,1000_QL80_.jpg"
-								alt="Foto de perfil de la influencer"
-								class="relative h-20 w-20 rounded-full border-2 border-white/60 object-cover shadow-xl shadow-violet-900/35 sm:h-24 sm:w-24"
-							/>
-						</div>
-
-						<div>
-							<p class="inline-flex rounded-full border border-violet-300/40 bg-violet-500/20 px-3 py-1 text-xs font-semibold tracking-wide text-violet-100">Dashboard Influencer</p>
-							<h1 class="mt-3 text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">Alan por el Mundo Dashboard</h1>
-							<p class="mt-2 text-sm text-slate-200 sm:text-base">Rendimiento en redes · €</p>
-							<p class="mt-2 max-w-2xl text-sm text-slate-300 sm:text-base">
-								Vista integral de ventas, contenido, plataformas y campañas para tomar decisiones de crecimiento con foco en rentabilidad.
-							</p>
-						</div>
-					</div>
-					<div class="grid grid-cols-2 gap-2 text-xs font-medium sm:gap-3 sm:text-sm">
-						<span class="rounded-full border border-sky-300/40 bg-sky-500/20 px-3 py-1 text-center">Periodo: Julio</span>
-						<span class="rounded-full border border-emerald-300/40 bg-emerald-500/20 px-3 py-1 text-center">Actualizado: Hoy</span>
-						<span class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-center">Plataformas: 3</span>
-						<span class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-center">Campañas: 8</span>
-					</div>
-				</div>
+			<header class="p-8 rounded-2xl text-white font-bold text-3xl bg-gradient-to-r from-purple-600 via-blue-500 to-green-400 animate-pulse shadow-xl">
+				Dashboard · Alan por el Mundo
 			</header>
+
+			<div class="bg-gradient-to-r from-purple-600 to-blue-500 text-white p-6 rounded-2xl shadow-lg flex items-center gap-4">
+				<span class="text-4xl animate-bounce">💰</span>
+				<div>
+					<h3 class="text-lg font-semibold">Ingresos del Mes</h3>
+					<p class="text-3xl font-bold">€11.200</p>
+				</div>
+			</div>
+
+			<div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+				<div class="bg-green-500 h-4 animate-pulse" style="width: 72%"></div>
+			</div>
+			<p class="text-sm text-gray-700 mt-2">Engagement YouTube: 72%</p>
+
+			<div class="backdrop-blur-xl bg-white/20 border border-white/30 p-6 rounded-2xl shadow-xl animate-pulse">
+				<h2 class="text-xl font-bold text-white mb-2">🔥 Insight del Día</h2>
+				<p class="text-white">
+					El video “Japón en 10 días” aumentó el engagement un 22% esta semana.
+				</p>
+			</div>
 
 			<section class="mt-6 sm:mt-7">
 				<article
@@ -118,6 +171,51 @@
 						<p>"Esta semana, Alan por el Mundo aumento su alcance en un 18% gracias a su serie de videos sobre Japon. El contenido de viajes largos sigue siendo el mas rentable."</p>
 					</blockquote>
 				</article>
+			</section>
+
+			<section class="mt-6 sm:mt-7">
+				<div class="mb-4">
+					<h2 class="text-lg font-bold text-white sm:text-xl">Tarjetas Glassmorphism + Iconos animados</h2>
+					<p class="mt-1 text-sm text-slate-300">Animacion visual con CSS puro para destacar dinero, crecimiento y contenido.</p>
+				</div>
+
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+					<article class="rounded-2xl border border-amber-200/35 bg-gradient-to-br from-amber-400/20 via-rose-500/15 to-slate-900/65 p-5 shadow-xl shadow-amber-900/20 backdrop-blur-md">
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-100/90">Monetizacion</p>
+								<h3 class="mt-2 text-base font-extrabold text-white">Comisiones activas</h3>
+							</div>
+							<span class="icon-money text-3xl" aria-hidden="true">💰</span>
+						</div>
+						<p class="mt-4 text-3xl font-extrabold text-white">€2.450</p>
+						<p class="mt-2 text-sm text-slate-200">El icono parpadea por color para marcar ingresos del periodo.</p>
+					</article>
+
+					<article class="rounded-2xl border border-sky-200/35 bg-gradient-to-br from-sky-500/20 via-cyan-500/15 to-slate-900/65 p-5 shadow-xl shadow-sky-900/20 backdrop-blur-md">
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-100/90">Crecimiento</p>
+								<h3 class="mt-2 text-base font-extrabold text-white">Traccion semanal</h3>
+							</div>
+							<span class="icon-growth text-3xl" aria-hidden="true">📈</span>
+						</div>
+						<p class="mt-4 text-3xl font-extrabold text-white">+18%</p>
+						<p class="mt-2 text-sm text-slate-200">Movimiento sutil y glow para llamar la atencion del KPI.</p>
+					</article>
+
+					<article class="rounded-2xl border border-violet-200/35 bg-gradient-to-br from-violet-500/20 via-fuchsia-500/15 to-slate-900/65 p-5 shadow-xl shadow-violet-900/20 backdrop-blur-md">
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100/90">Contenido</p>
+								<h3 class="mt-2 text-base font-extrabold text-white">Video destacado</h3>
+							</div>
+							<span class="icon-content text-3xl" aria-hidden="true">🎥</span>
+						</div>
+						<p class="mt-4 text-xl font-extrabold text-white">Japon en 10 dias</p>
+						<p class="mt-2 text-sm text-slate-200">Rotacion suave para reforzar foco en el contenido principal.</p>
+					</article>
+				</div>
 			</section>
 
 			<section class="mt-8">
@@ -268,6 +366,34 @@
 						</div>
 					</article>
 
+					<article class="rounded-2xl border border-white/15 bg-gradient-to-br from-slate-900/75 via-rose-500/12 to-amber-500/12 p-4 shadow-xl shadow-slate-950/35 backdrop-blur-md sm:p-5">
+						<h3 class="text-sm font-semibold text-white">Mapa de calor por plataforma</h3>
+						<p class="mt-1 text-xs text-slate-300">Visualizacion de intensidad por rendimiento (sin JS).</p>
+						<div class="mt-4 space-y-3 text-sm">
+							<div class="grid grid-cols-[88px_1fr_auto] items-center gap-3 sm:grid-cols-[110px_1fr_auto]">
+								<span class="font-semibold text-slate-100">YouTube</span>
+								<div class="h-3 rounded-full bg-slate-700/80 ring-1 ring-white/10">
+									<div class="h-3 w-[78%] rounded-full bg-gradient-to-r from-red-500 via-orange-400 to-amber-300 shadow-[0_0_14px_rgba(249,115,22,0.45)]"></div>
+								</div>
+								<span class="font-bold text-amber-200">78%</span>
+							</div>
+							<div class="grid grid-cols-[88px_1fr_auto] items-center gap-3 sm:grid-cols-[110px_1fr_auto]">
+								<span class="font-semibold text-slate-100">Instagram</span>
+								<div class="h-3 rounded-full bg-slate-700/80 ring-1 ring-white/10">
+									<div class="h-3 w-[32%] rounded-full bg-gradient-to-r from-sky-500 via-cyan-400 to-teal-300 shadow-[0_0_14px_rgba(34,211,238,0.45)]"></div>
+								</div>
+								<span class="font-bold text-cyan-200">32%</span>
+							</div>
+							<div class="grid grid-cols-[88px_1fr_auto] items-center gap-3 sm:grid-cols-[110px_1fr_auto]">
+								<span class="font-semibold text-slate-100">TikTok</span>
+								<div class="h-3 rounded-full bg-slate-700/80 ring-1 ring-white/10">
+									<div class="h-3 w-[45%] rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-400 to-pink-300 shadow-[0_0_14px_rgba(217,70,239,0.45)]"></div>
+								</div>
+								<span class="font-bold text-fuchsia-200">45%</span>
+							</div>
+						</div>
+					</article>
+
 					<article class="rounded-2xl border border-white/15 bg-gradient-to-br from-slate-900/75 via-emerald-500/12 to-sky-500/12 p-4 shadow-xl shadow-slate-950/35 backdrop-blur-md sm:p-5">
 						<h3 class="text-sm font-semibold text-white">Calidad</h3>
 						<div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -409,12 +535,55 @@
 					</article>
 
 					<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
-						<article class="rounded-2xl border border-white/15 bg-gradient-to-br from-slate-900/75 via-rose-500/12 to-violet-500/12 p-4 shadow-xl shadow-slate-950/35 backdrop-blur-md sm:p-5">
-							<h3 class="text-sm font-semibold text-white">Alertas visuales</h3>
-							<ul class="mt-4 space-y-2 text-sm">
-								<li class="rounded-lg border border-red-300/70 bg-red-500 p-3 font-bold text-white shadow-lg shadow-red-900/40">Caida del 32% en conversiones esta semana (YouTube Ads).</li>
-								<li class="rounded-lg border border-emerald-200/70 bg-emerald-500 p-3 font-bold text-white shadow-lg shadow-emerald-900/40">Pico de ventas: +27% en Instagram Reels en las ultimas 48h.</li>
-								<li class="rounded-lg border border-yellow-200/80 bg-yellow-400 p-3 font-bold text-slate-950 shadow-lg shadow-yellow-900/30">Anomalia detectada: coste por resultado subio 14% en campana Back to Routine.</li>
+						<article class="rounded-2xl border border-white/15 bg-gradient-to-br from-slate-900/80 via-rose-500/12 to-orange-500/10 p-4 shadow-xl shadow-slate-950/35 backdrop-blur-md sm:p-5">
+							<div class="flex items-center justify-between gap-3">
+								<h3 class="text-sm font-semibold text-white">Centro de alertas</h3>
+								<span class="rounded-full border border-rose-300/50 bg-rose-500/20 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-rose-100">3 activas</span>
+							</div>
+							<p class="mt-2 text-xs text-slate-300">Monitoreo operativo en tiempo real por severidad.</p>
+
+							<ul class="mt-4 space-y-3 text-sm">
+								<li class="rounded-xl border border-red-300/45 bg-gradient-to-r from-red-600/80 via-red-500/70 to-rose-500/70 p-3 text-white shadow-lg shadow-red-900/45">
+									<div class="flex items-start justify-between gap-3">
+										<div>
+											<p class="text-[11px] font-bold uppercase tracking-[0.16em] text-red-100/95">Critica · Conversion</p>
+											<p class="mt-1 font-semibold">Caida del 32% en conversiones en YouTube Ads (ultimas 24h).</p>
+										</div>
+										<span class="rounded-md border border-white/35 bg-white/15 px-2 py-1 text-[10px] font-bold uppercase">P1</span>
+									</div>
+									<div class="mt-2 flex items-center justify-between text-[11px] text-red-100/95">
+										<span>Canal: Performance</span>
+										<span>Hace 7 min</span>
+									</div>
+								</li>
+
+								<li class="rounded-xl border border-amber-200/45 bg-gradient-to-r from-amber-500/75 via-orange-500/70 to-yellow-400/70 p-3 text-slate-950 shadow-lg shadow-orange-900/35">
+									<div class="flex items-start justify-between gap-3">
+										<div>
+											<p class="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-900/80">Alta · Costes</p>
+											<p class="mt-1 font-semibold">Anomalia: coste por resultado +14% en campana Back to Routine.</p>
+										</div>
+										<span class="rounded-md border border-slate-900/25 bg-white/40 px-2 py-1 text-[10px] font-bold uppercase">P2</span>
+									</div>
+									<div class="mt-2 flex items-center justify-between text-[11px] text-slate-900/75">
+										<span>Canal: Paid Media</span>
+										<span>Hace 18 min</span>
+									</div>
+								</li>
+
+								<li class="rounded-xl border border-emerald-200/45 bg-gradient-to-r from-emerald-600/75 via-emerald-500/70 to-teal-500/70 p-3 text-white shadow-lg shadow-emerald-900/35">
+									<div class="flex items-start justify-between gap-3">
+										<div>
+											<p class="text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-100/95">Positiva · Ventas</p>
+											<p class="mt-1 font-semibold">Pico de ventas +27% en Instagram Reels durante las ultimas 48h.</p>
+										</div>
+										<span class="rounded-md border border-white/35 bg-white/15 px-2 py-1 text-[10px] font-bold uppercase">Info</span>
+									</div>
+									<div class="mt-2 flex items-center justify-between text-[11px] text-emerald-100/95">
+										<span>Canal: Social Commerce</span>
+										<span>Hace 26 min</span>
+									</div>
+								</li>
 							</ul>
 						</article>
 
